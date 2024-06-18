@@ -31,51 +31,14 @@
     </div>
     <div class="content">
         <h1 id="marquee" style="color: white;font-size: xxx-large;background-color: darkgray;margin-left: -30px;margin-top: -30px;width:100%;height: 100px;">Portfolio&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</h1>
-        <h2 style="margin-top: 100px;text-align: center; font-size: xx-large; margin-top: 20px;">Welcome to GunHee's web page</h2>
+       <h2 style="margin-top: 100px; margin-left: 170px;">화살표 함수는 다음과 같은 형태를 가집니다: (인자) => {함수 본문}.<br> 인자가 하나뿐인 경우에는 괄호를 생략할 수 있습니다: 인자 => {함수 본문}.<br>살표 함수는 기존의 함수 표현 방식보다 더 간결하게 함수를 작성할 수 있습니다.</be></h2>
+        <h1 style="margin-left: 470px;">두 수의 연산 결과</h1>
 
-        <br><br><h3>
-         | 공부 기록 |
-          <p><a href="https://github.com/limgunny/lgh-1"
-            >! Gitgub</a></p>
-            <a href="https://blog.naver.com/bbakgongbu">! Blog</a> <br><br>
-            <a href="https://github.com/limgunny/fianl_team_project">! Team Project</a>
-        </h3>
+<p style="margin-left: 580px;" id="cul"></p>
 
-        
-
-        <br><br>
-        <p><hr style="width: 200px; margin-left: 0px;">
-          91814333 : 임건희
-          
-        </p><hr style="width: 200px; margin-left: 0px;"><p>
-         중부대학교 정보보호학과
-          
-        </p>
-        <hr style="width: 200px; margin-left: 0px;">
-        <br />
-       
-        <div>
-          <img id="fig" height="200px" width="400px" />
-          <p id="desc"></p>
-        </div>
-    </div>
-      </div>
-    </section>
     </div>
 <script>
 
-//학번 인증
-let usernumber = prompt('학번을 입력해주세요')
-
-  if(usernumber==91814333){
-    (alert('인증 성공'))
-}
-else{
-  alert('인증 실패 : 학번을 다시 확인해주세요')
-    location.href="https://www.joongbu.ac.kr/";
-}
-
-//marquee
 let marquee = document.getElementById('marquee');
 let text = marquee.innerText;
 let index = text.length;
@@ -87,6 +50,29 @@ for (let i = 0; i < 38; i++) {
     index = (index - 1 + text.length) % text.length;
   }, 100 * i);  // i를 곱하여 각 이동이 순차적으로 발생하도록 합니다.
 }
+
+let add = (a, b) => a + b;
+
+// 화살표 함수를 사용하여 두 수를 빼는 함수
+let subtract = (a, b) => a - b;
+
+// 화살표 함수를 사용하여 두 수를 곱하는 함수
+let multiply = (a, b) => a * b;
+
+// 화살표 함수를 사용하여 두 수를 나누는 함수
+let divide = (a, b) => a / b;
+
+// 사용자로부터 두 개의 숫자를 입력받습니다.
+let num1 = Number(prompt("첫 번째 숫자를 입력하세요."));
+let num2 = Number(prompt("두 번째 숫자를 입력하세요."));
+
+// 결과를 계산하고 출력합니다.
+document.getElementById("cul").innerHTML = 
+  `두 수의 합: ${add(num1, num2)}<br>` +
+  `두 수의 차: ${subtract(num1, num2)}<br>` +
+  `두 수의 곱: ${multiply(num1, num2)}<br>` +
+  `두 수의 나눗셈: ${divide(num1, num2)}`;
+
 </script>
 </body>
 </html>

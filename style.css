@@ -1,0 +1,81 @@
+/* 사이드바 스타일 */
+.sidebar {
+    width: 50px;
+    height: 100vh;
+    background-color: black;
+    position: fixed;
+    transition: width 0.5s;
+    overflow: hidden;
+    white-space: nowrap;
+    /* 왼쪽과 상단의 여백 제거 */
+    margin-left: -10px;
+    margin-top: -10px;
+}
+
+/* 마우스를 올리면 사이드바 확장 */
+.sidebar:hover {
+    width: 200px;
+}
+
+/* 메뉴 스타일 */
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* 메뉴 항목 스타일 */
+.sidebar ul li {
+    color: #fff;
+    padding: 20px;
+}
+
+
+/* 마우스를 올리면 메뉴 항목 색상 변경 */
+.sidebar ul li:hover {
+    background-color: #555;
+}
+
+
+
+
+/* 세부 메뉴 스타일 */
+.sidebar ul li ul {
+    display: none;
+}
+
+/* 메뉴 항목에 마우스를 올리면 세부 메뉴 표시 */
+.sidebar ul li:hover ul {
+    display: block;
+}
+
+/* 내용 영역 스타일 */
+.content {
+    margin-left: 50px; /* 사이드바의 너비와 동일하게 설정 */
+    padding: 20px;
+    transition: margin-left 0.5s; /* 사이드바와 동일한 전환 시간 설정 */
+    background-image: url(img/kitty4\ \(1\).png);
+}
+
+/* 마우스를 올리면 content 영역 확장 */
+.sidebar:hover ~ .content {
+    margin-left: 200px; /* 사이드바 확장 너비와 동일하게 설정 */
+}
+.sidebar a{
+    color: white;
+    text-decoration: none!important;
+}
+
+/* 이미지 스타일 */
+.sidebar img {
+    width: 50px;
+    height: 50px;
+    transition: all 0.5s; /* 전환 시간 설정 */
+    position: inherit;
+}
+#marquee {
+    position: absolute;
+    width: 100%;
+    white-space: nowrap;
+    direction: left;
+  }

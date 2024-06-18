@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>포트폴리오</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="sidebar">
+        <h3 style="font-size: x-large;font-family: Arial, Helvetica, sans-serif;margin-left: 48px;margin-top: 70px; color: white;">Portfolio</h3><img style="margin-top:-70px;position:fixed;" src="img/fire.gif" alt="logo"></a>
+        <ul style="margin-top: 100px;">
+            <li><a style="margin-left: 30px;" href="/index.html">Home</li>
+            <li><a style="margin-left:0px;" href="/team.html">Team</li>
+        </ul>
+        
+        <ul>
+            <li><a style="margin-left: 30px;">utilize</a>
+                <ul>
+                <li><a href="arrow.html">arrow</a></li>
+                    <li><a href="dom.html">dom</a></li>
+                </ul>
+            </li>
+            <li><a style="margin-left: 30px;">Portfolio</a>
+                <ul>
+                    <li><a href="secon.html">SECON</a></li>
+                    <li><a href="photo.html">photo</a></li>
+                </ul>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="content">
+        <h1 id="marquee" style="color: white;font-size: xxx-large;background-color: darkgray;margin-left: -30px;margin-top: -30px;width:100%;height: 100px;">Portfolio&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</h1>
+        <div style="margin-left: 40%; margin-top: 150px;">
+        <div style="cursor: pointer;"onclick='location.href = "https://middleweb.netlify.app/"'>
+            <a  style="font-size: x-large;font-family: Arial, Helvetica, sans-serif;" href="https://github.com/kindwitch">박이슬의 github</a> <p >| deploy한 주소 |</p> 
+          </div>
+          <div  style="cursor: pointer;"onclick='location.href = "https://rickyphantom.netlify.app/"'>
+            <a style="font-size: x-large;font-family: Arial, Helvetica, sans-serif;" href="https://github.com/Rickyphantom">유선빈의 github</a> <p>| deploy한 주소 |</p> 
+          </div>
+          <div style="cursor: pointer;"onclick='location.href = "https://imgunny.netlify.app"'>
+            <a style="font-size: x-large;font-family: Arial, Helvetica, sans-serif;" href="https://github.com/limgunny">임건희의 github</a> <p>| deploy한 주소 |</p> 
+          </div>
+          
+          <input type="text" id="searchInput" placeholder="팀, github 등 키워드를 검색해 보세요">
+      <button onclick="performSearch()">검색</button>
+      <div style="color:darkgreen; font: bold  2.0em/1.0em 돋움체;" id="searchResults"></div></div>
+    </div>
+<script>
+
+let marquee = document.getElementById('marquee');
+let text = marquee.innerText;
+let index = text.length;
+
+// 텍스트의 길이만큼 반복하여 텍스트를 한 글자씩 왼쪽으로 이동시킵니다.
+for (let i = 0; i < 38; i++) {
+  setTimeout(function() {
+    marquee.innerText = text.substring(index) + text.substring(0, index);
+    index = (index - 1 + text.length) % text.length;
+  }, 100 * i);  // i를 곱하여 각 이동이 순차적으로 발생하도록 합니다.
+}
+
+const data = 
+    ["팀소개","팀원1-박이슬(92450524)","팀원2-유선빈(92113724)","팀원3-임건희(91814333)"];
+        // 추가 검색 가능한 데이터 항목들...
+    
+
+    function performSearch() {
+        const userInput = document.getElementById('searchInput').value.toLowerCase();
+        const searchResults = data.filter(item => item.toLowerCase().includes(userInput));
+
+        const resultsContainer = document.getElementById('searchResults');
+        resultsContainer.innerHTML = ''; // 기존 결과 초기화
+
+        if (searchResults.length === 0) {
+            resultsContainer.textContent = '검색 결과가 없습니다.';
+        } else {
+            searchResults.forEach(result => {
+                const resultItem = document.createElement('p');
+                resultItem.textContent = result;
+                resultsContainer.appendChild(resultItem);
+            });
+        }
+    }
+
+</script>
+</body>
+</html>
