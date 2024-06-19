@@ -52,7 +52,7 @@ let marquee = document.getElementById('marquee');
 let text = marquee.innerText;
 let index = text.length;
 
-// 텍스트의 길이만큼 반복하여 텍스트를 한 글자씩 왼쪽으로 이동시킵니다.
+// 텍스트의 길이만큼 반복
 for (let i = 0; i < 38; i++) {
   setTimeout(function() {
     marquee.innerText = text.substring(index) + text.substring(0, index);
